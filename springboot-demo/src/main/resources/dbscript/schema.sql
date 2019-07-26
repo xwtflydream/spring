@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = MyISAM CHARACTER SET = utf8 COLLATE = utf8_bin ROW_FORMAT = Dynamic;

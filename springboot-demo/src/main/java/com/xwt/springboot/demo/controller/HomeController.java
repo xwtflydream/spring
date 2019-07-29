@@ -16,4 +16,9 @@ public class HomeController {
         model.addAttribute("users", userRepo.findAll());
         return "index";
     }
+
+    @RequestMapping(value = "/test/error")
+    public String testError() throws Exception {
+        throw new Exception("发生错误");
+    }
 }

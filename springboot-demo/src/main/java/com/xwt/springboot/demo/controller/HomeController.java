@@ -13,7 +13,7 @@ public class HomeController {
     @Autowired
     private UserRepository userRepo;
 
-    @RequestMapping("/")
+    @RequestMapping(value = {"", "/"})
     public String home(Model model) {
         model.addAttribute("users", userRepo.findAll());
         return "index";

@@ -2,3 +2,4 @@
 2、单元测试示例
 3、统一异常处理(见GlobalExceptionHandler)
 4、添加swagger2(见Swagger2Config和UserController)
+5、添加JavaMailSender（见JavaMailSenderTest）

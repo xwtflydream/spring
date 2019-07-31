@@ -12,7 +12,7 @@
     <artifactId>rabbitmq-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>rabbitmq-demo</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Demo project for Spring Boot And RabbitMQ</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -34,6 +34,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- AMQP(支持RabbitMQ) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
     </dependencies>
 

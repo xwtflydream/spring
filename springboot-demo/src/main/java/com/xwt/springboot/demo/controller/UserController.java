@@ -27,7 +27,7 @@ public class UserController {
     @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
     @ApiImplicitParam(name = "user", value = "用户详细尸体user", required = true, dataType = "User")
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public String postUser(@RequestBody User user) {
+    public String postUser(@ModelAttribute User user) {
         // 处理"/users/"的POST请求，用来创建User
         // 除了@ModelAttribute绑定参数之外，还可以通过@RequestParam从页面中传递参数
         users.put(user.getId(), user);

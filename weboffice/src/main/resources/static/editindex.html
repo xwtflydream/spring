@@ -1,0 +1,89 @@
+<html>
+<head>
+	<meta content="IE=10" http-equiv="X-UA-Compatible" />
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>首页 - OFFICE文档控件演示示例</title>
+    <link href="officecontrol/ntkoStyle.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="officecontrol/ntko.js"></script>
+	<script type="text/javascript">
+	var cmd;	//命令类型
+	
+	function getQueryString(name) { 
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"); 
+		var r = window.location.search.substr(1).match(reg); 
+		if (r != null) return unescape(r[2]); 
+	
+		return null; 
+		
+	}
+	
+	function CurentTime()
+	{ 
+		var now = new Date();
+	   
+		var year = now.getFullYear();       //年
+		var month = now.getMonth() + 1;     //月
+		var day = now.getDate();            //日
+	   
+		var hh = now.getHours();            //时
+		var mm = now.getMinutes();          //分
+		var ss = now.getSeconds();          //分
+	   
+		var clock = year + "-";
+	   
+		if(month < 10)
+			clock += "0";
+	   
+		clock += month + "-";
+	   
+		if(day < 10)
+			clock += "0";
+		   
+		clock += day + " ";
+	   
+		if(hh < 10)
+			clock += "0";
+		   
+		clock += hh + ":";
+		if (mm < 10) clock += '0'; 
+		clock += mm + ":";  
+		if (ss < 10) clock += '0'; 
+		clock += ss; 		
+		return(clock); 
+	}
+	
+	//在子页面定义的向父页面回传值的方法，方法名可以自定义
+	function ntkoSendDataToParentPage(cmd)
+	{
+		var varData = new Array();
+		varData.push(ntko.docsize);
+		varData.push(CurentTime());
+		ntkoBrowser.ntkoSetReturnValueToParentPage("OnData",varData);
+		
+	}	
+	function ntkoDataToChild(data){
+	document.getElementById("DataToChild").innerHTML="获取到父页面的值为:"+data;
+	}
+	function ntkoGetParentData(data){
+	ntkoDataToChild(data);
+	}
+	</script>
+
+	
+</head>
+
+<body onload="cmd=getQueryString('cmd');init(cmd);" >
+	<div class="divTop">
+		<div class="divTopInner">
+			<div class="divTopInnerCaption">重庆软航科技有限公司</div>
+			<div class="divTopInnerNtko"><a href="http://www.ntko.com" title="点击访问NTKO官网">官网</a></div>
+		</div>
+	</div>
+	<div id="DataToChild" class="divBody" style="color:red;text-align:left;">
+	</div>
+	<div class="divBody">
+	
+		<script type="text/javascript" src="officecontrol/ntkoofficecontrol.min.js"></script>
+	</div>
+</body>
+</html>

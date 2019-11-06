@@ -1,0 +1,47 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    # 配置数据源
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 使用druid连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/monitor_server?characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456
+  #rabbitMQ配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+# rabbitMQ主题模式对应的队列名称
+mq:
+  topic:
+    exchange:
+      name: topicExchange
+    rout:
+      key: topic.server
+    queue:
+      name: topic.server.client1
+
+# 服务状态监控数据定时同步时间设置
+monitor:
+  status:
+    sync:
+      cron: 0 0/1 * * * ?
+
+mybatis-plus:
+  type-aliases-package: com.zykx.monitor.manger.entity
+  mapper-locations: classpath*:mapper/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      table-underline: true
+      db-type: mysql
+      # 逻辑已删除值(默认为 1)
+      logic-delete-value: 1
+      # 逻辑未删除值(默认为 0)
+      logic-not-delete-value: 0

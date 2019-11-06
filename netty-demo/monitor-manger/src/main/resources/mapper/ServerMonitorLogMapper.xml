@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zykx.monitor.manager.mybatis.ServerMonitorLogMapper">
+
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into mm_server_monitor_log (server_id, monitor_time, status) values
+        <foreach collection="list" item="log" index="index" separator=",">
+            (#{log.serverId}, #{log.monitorTime}, #{log.status})
+        </foreach>
+    </insert>
+
+</mapper>
